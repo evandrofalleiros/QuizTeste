@@ -517,11 +517,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   perguntaAtual: {fileID: 11400000, guid: 4723da5572179462fac7c432ddc3f7e5, type: 2}
   textoEnunciado: {fileID: 1145074211}
-  textosAlternativas:
-  - {fileID: 2005937248}
-  - {fileID: 1688593621}
-  - {fileID: 288039960}
-  - {fileID: 659600004}
+  alternativasTMP:
+  - {fileID: 760799813}
+  - {fileID: 1070834726}
+  - {fileID: 1187224107}
+  - {fileID: 1419895168}
+  spriteRespostaCorreta: {fileID: 21300000, guid: fcf92a668049149b1bb525de7dd6871d, type: 3}
+  spriteRespostaIncorreta: {fileID: 21300000, guid: fd7c9637ee1af462da898b9ed1e37392, type: 3}
 --- !u!4 &427003794
 Transform:
   m_ObjectHideFlags: 0
