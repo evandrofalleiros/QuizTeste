@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
    public void HandleOption(int alternativaSelecionada)
    {
       // Desabilitar os botões de resposta para que novas respostas não sejam registradas
-      DesabilitarBotoesReposta();
+      DesabilitarBotoesResposta();
       PararTimer();
       
       Image imgRespostaSelecionada = alternativasTMP[alternativaSelecionada].GetComponent<Image>();
@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
    }
 
    // Função utilizada para desabilitar os botões de alternativas;
-   public void DesabilitarBotoesReposta()
+   public void DesabilitarBotoesResposta()
    {
       for (int i = 0; i < alternativasTMP.Length; i++)
       {

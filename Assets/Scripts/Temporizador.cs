@@ -30,11 +30,8 @@ public class Temporizador : MonoBehaviour
             tempoAtual += 1 * Time.deltaTime;
             slider.value = tempoAtual;
 
-            if (tempoAtual > tempoMaximo)
+            if (tempoAtual > tempoMaximo && onParadaTimer != null)
             {
-                if (onParadaTimer == null) 
-                    return;
-            
                 Parar();
             }
         }
