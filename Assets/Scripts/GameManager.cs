@@ -16,8 +16,7 @@ public class GameManager : MonoBehaviour
    // Acessar a camada de Modelo (PerguntaSO)
    [SerializeField] private PerguntaSO perguntaAtual;
    [SerializeField] private PerguntaSO[] perguntas;
-   
-   
+
    // Acessar a camada de Visão 
    [SerializeField] private TextMeshProUGUI textoEnunciado;
    [SerializeField] private GameObject[] alternativasTMP;
