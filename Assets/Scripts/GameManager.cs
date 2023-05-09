@@ -1,18 +1,18 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Mime;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
-<<<<<<< Updated upstream
-=======
 using UnityEngine.UI;
 using Image = UnityEngine.UI.Image;
 using Button = UnityEngine.UI.Button;
->>>>>>> Stashed changes
 
 public class GameManager : MonoBehaviour
 {
+   
+   [Header("Perguntas")]
    // Acessar a camada de Modelo (PerguntaSO)
    [SerializeField] private PerguntaSO perguntaAtual;
    [SerializeField] private PerguntaSO[] perguntas;
@@ -21,6 +21,10 @@ public class GameManager : MonoBehaviour
    // Acessar a camada de Visão 
    [SerializeField] private TextMeshProUGUI textoEnunciado;
    [SerializeField] private GameObject[] alternativasTMP;
+   
+   [Header("Sprites")]
+   [SerializeField] private Sprite spriteRespostaCorreta;
+   [SerializeField] private Sprite spriteRespostaIncorreta;
 
    private Temporizador temporizador;
    public void Start()
@@ -47,19 +51,6 @@ public class GameManager : MonoBehaviour
 
    public void HandleOption(int alternativaSelecionada)
    {
-<<<<<<< Updated upstream
-      if (alternativaSelecionada == perguntaAtual.GetAlternativaCorreta())
-      {
-         // a alternativa selecionada está correta
-         Debug.Log("Show... parabéns!");   
-      }
-      else
-      {
-         // a alternativa selecionada está correta
-         Debug.Log("Erroouuuuuuuuu (Fausto Silva)");
-      }
-   }
-=======
       // Desabilitar os botões de resposta para que novas respostas não sejam registradas
       DesabilitarBotoesReposta();
       PararTimer();
@@ -110,7 +101,6 @@ public class GameManager : MonoBehaviour
    {
       Debug.Log("parada");
    }
->>>>>>> Stashed changes
 }
 
 
