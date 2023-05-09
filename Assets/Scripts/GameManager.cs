@@ -2,19 +2,33 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+<<<<<<< Updated upstream
+=======
+using UnityEngine.UI;
+using Image = UnityEngine.UI.Image;
+using Button = UnityEngine.UI.Button;
+>>>>>>> Stashed changes
 
 public class GameManager : MonoBehaviour
 {
    // Acessar a camada de Modelo (PerguntaSO)
    [SerializeField] private PerguntaSO perguntaAtual;
+   [SerializeField] private PerguntaSO[] perguntas;
+   
    
    // Acessar a camada de Visão 
    [SerializeField] private TextMeshProUGUI textoEnunciado;
    [SerializeField] private GameObject[] alternativasTMP;
 
+   private Temporizador temporizador;
    public void Start()
    {
+      // Registrando para receber a chamada de volta usando o método RegistrarTempoMaximoAtingido()
+      temporizador = GetComponent<Temporizador>();
+      temporizador.RegistrarParada(OnParadaTimer);
+
       // Popular o texto do enunciado
       textoEnunciado.SetText(perguntaAtual.GetEnunciado());
       
@@ -33,6 +47,7 @@ public class GameManager : MonoBehaviour
 
    public void HandleOption(int alternativaSelecionada)
    {
+<<<<<<< Updated upstream
       if (alternativaSelecionada == perguntaAtual.GetAlternativaCorreta())
       {
          // a alternativa selecionada está correta
@@ -44,6 +59,58 @@ public class GameManager : MonoBehaviour
          Debug.Log("Erroouuuuuuuuu (Fausto Silva)");
       }
    }
+=======
+      // Desabilitar os botões de resposta para que novas respostas não sejam registradas
+      DesabilitarBotoesReposta();
+      PararTimer();
+      
+      Image imgRespostaSelecionada = alternativasTMP[alternativaSelecionada].GetComponent<Image>();
+      
+      if (alternativaSelecionada == perguntaAtual.GetAlternativaCorreta())
+      {
+         // a alternativa selecionada está correta
+         
+         // alterar o sprite do botão selecionado pelo jogador, assumindo que esse botão representa
+         // a alternativa correta para a questão avaliada
+         MudarSpriteBotao(imgRespostaSelecionada, spriteRespostaCorreta);
+      }
+      else
+      {
+         // a alternativa selecionada está incorreta
+         Image imgRespostaCorreta = alternativasTMP[perguntaAtual.GetAlternativaCorreta()].GetComponent<Image>();
+         
+         MudarSpriteBotao(imgRespostaSelecionada, spriteRespostaIncorreta);
+         MudarSpriteBotao(imgRespostaCorreta, spriteRespostaCorreta);
+      }
+   }
+
+   // Função utilizada para alterar os sprites de um botão de alternativa
+   public void MudarSpriteBotao(Image img, Sprite sprite)
+   {
+      img.sprite = sprite;
+   }
+
+   // Função utilizada para desabilitar os botões de alternativas;
+   public void DesabilitarBotoesReposta()
+   {
+      for (int i = 0; i < alternativasTMP.Length; i++)
+      {
+         Button btn = alternativasTMP[i].GetComponent<Button>();
+         btn.enabled = false;
+      }
+   }
+
+   void PararTimer()
+   {
+      temporizador.Parar();
+   }
+   
+   // Função utilizada para chamar a próxima questão do Quiz apos o timer ser interrompido
+   void OnParadaTimer()
+   {
+      Debug.Log("parada");
+   }
+>>>>>>> Stashed changes
 }
 
 
