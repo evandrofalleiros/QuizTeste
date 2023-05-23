@@ -32,5 +32,10 @@ public class PerguntaSO : ScriptableObject
    {
       return id;
    }
+
+   public string GetTextoAlternativaCorreta()
+   {
+      return alternativas[alternativaCorreta];
+   }
    
 }
